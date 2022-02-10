@@ -32,13 +32,13 @@ if __name__ == '__main__':
     img_save_name_tail = 'collaborator_banners.png'
 
     # Correct the output file name.
-    img_save_name = os.path.join(os.path.abspath(os.getcwd()), img_save_name_tail)
+    img_save_name = os.path.join(os.path.abspath(os.getcwd()), 'example_data', img_save_name_tail)
     
     # Define the name of the input file (text)
     txt_input_tail = 'input_file.txt'
 
     # Correct the input file name.
-    txt_input = os.path.join(os.path.abspath(os.getcwd()), txt_input_tail)
+    txt_input = os.path.join(os.path.abspath(os.getcwd()), 'example_data', txt_input_tail)
 
     # Load the contents of the input file
     names = load_input_file(txt_input)
@@ -49,8 +49,7 @@ if __name__ == '__main__':
     # Generate word cloud
     wordcloud = WordCloud(width = 3000, height = 2000, 
         background_color='salmon', colormap='Pastel1', collocations=True, 
-        normalize_plurals = False, stopwords = STOPWORDS, regexp=regexp, 
-        min_font_size=166, max_font_size=173).generate(names)
+        normalize_plurals = False, stopwords = STOPWORDS, regexp=regexp).generate(names)
 
     # Plot
     plot_and_save_cloud(wordcloud, img_save_name)
